@@ -1,0 +1,89 @@
+{
+    "cryptocurrencies": [
+        "BTC",
+        "ETH",
+        "BNB",
+        "SOL",
+        "ADA",
+        "XRP",
+        "DOT",
+        "DOGE",
+        "AVAX",
+        "MATIC"
+    ],
+    "data_collection": {
+        "market_data": {
+            "timeframes": ["1d", "4h", "1h"],
+            "historical_days": 30,
+            "use_binance_api": true,
+            "use_yahoo_finance": true
+        },
+        "news_data": {
+            "sources": ["twitter", "reddit", "crypto_news"],
+            "keywords_per_crypto": 3,
+            "max_news_age_days": 3,
+            "sentiment_threshold": 0.2
+        }
+    },
+    "analysis": {
+        "technical": {
+            "indicators": {
+                "sma": [20, 50, 200],
+                "ema": [9, 21],
+                "rsi": [14],
+                "macd": {
+                    "fast": 12,
+                    "slow": 26,
+                    "signal": 9
+                },
+                "bollinger_bands": {
+                    "period": 20,
+                    "std_dev": 2
+                }
+            },
+            "signal_weights": {
+                "trend": 0.3,
+                "momentum": 0.3,
+                "volatility": 0.2,
+                "volume": 0.2
+            }
+        },
+        "sentiment": {
+            "positive_threshold": 0.6,
+            "negative_threshold": 0.4,
+            "neutral_range": [0.4, 0.6],
+            "volume_factor": 0.3,
+            "recency_factor": 0.7
+        },
+        "correlation": {
+            "technical_weight": 0.7,
+            "sentiment_weight": 0.3,
+            "min_agreement_threshold": 0.6
+        }
+    },
+    "recommendation": {
+        "min_confidence": 0.7,
+        "position_sizing": {
+            "max_per_trade": 0.1,
+            "risk_factor": 0.02
+        },
+        "risk_management": {
+            "stop_loss_percentage": {
+                "low_risk": 0.05,
+                "medium_risk": 0.08,
+                "high_risk": 0.12
+            },
+            "take_profit_percentage": {
+                "low_risk": 0.1,
+                "medium_risk": 0.15,
+                "high_risk": 0.25
+            }
+        }
+    },
+    "ui": {
+        "default_report_type": "html",
+        "chart_style": "dark",
+        "show_supporting_factors": true,
+        "show_risk_factors": true
+    }
+}
